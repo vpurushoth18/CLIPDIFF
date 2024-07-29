@@ -223,9 +223,9 @@ class CLIP4IDC(CLIP4IDCPreTrainedModel):
             if self._stage_one is True and self._stage_two is False:
                 sim_matrix, *_tmp = self.get_similarity_logits(sequence_emb, visual_emb, attention_mask, image_mask,
                                                         shaped=True)
-                sim_loss1 = self.loss_fct(sim_matrix)
-                sim_loss2 = self.loss_fct(sim_matrix.T)
-                sim_loss = (sim_loss1 + sim_loss2) / 2
+                sim_loss = self.loss_fct(sim_matrix)
+                # sim_loss2 = self.loss_fct(sim_matrix.T)
+                # sim_loss = (sim_loss1 + sim_loss2) / 2
                 loss += sim_loss
 
             elif self._stage_one is False and self._stage_two is True:
