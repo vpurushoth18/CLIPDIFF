@@ -5,13 +5,13 @@ from dataloaders.dataloader_tea_retrieval import Tea_DataLoader
 
 
 
-def dataloader_clevr_train(args, tokenizer):
+def dataloader_tea_train(args, tokenizer):
     if args.task_type == "retrieval":
         DataSet_DataLoader = Tea_DataLoader
     else:
         DataSet_DataLoader = Tea_Caption_DataLoader
 
-    clevr_dataset = DataSet_DataLoader(
+    tea_dataset = DataSet_DataLoader(
         subset="train",
         data_path=args.data_path,
         features_path=args.features_path,
@@ -19,9 +19,9 @@ def dataloader_clevr_train(args, tokenizer):
         tokenizer=tokenizer,
     )
 
-    train_sampler = torch.utils.data.distributed.DistributedSampler(clevr_dataset)
+    train_sampler = torch.utils.data.distributed.DistributedSampler(tea_dataset)
     dataloader = DataLoader(
-        clevr_dataset,
+        tea_dataset,
         batch_size=args.batch_size // args.n_gpu,
         num_workers=args.num_thread_reader,
         pin_memory=False,
@@ -30,31 +30,30 @@ def dataloader_clevr_train(args, tokenizer):
         drop_last=True,
     )
 
-    return dataloader, len(clevr_dataset), train_sampler
+    return dataloader, len(tea_dataset), train_sampler
 
-def dataloader_clevr_test(args, tokenizer, subset="test"):
+def dataloader_tea_test(args, tokenizer, subset="test"):
     if args.task_type == "retrieval":
         DataSet_DataLoader = Tea_DataLoader
     else:
-        DataSet_DataLoader = CLEVR_Caption_DataLoader
-
-    clevr_testset = DataSet_DataLoader(
+        DataSet_DataLoader = Tea_Caption_DataLoader
+    tea_testset = DataSet_DataLoader(
         subset=subset,
         data_path=args.data_path,
         features_path=args.features_path,
         max_words=args.max_words,
         tokenizer=tokenizer,
     )
-    dataloader_clevr = DataLoader(
-        clevr_testset,
+    dataloader_tea = DataLoader(
+        tea_testset,
         batch_size=args.batch_size_val,
         num_workers=args.num_thread_reader,
         shuffle=False,
         drop_last=False,
     )
-    return dataloader_clevr, len(clevr_testset)
+    return dataloader_tea, len(tea_testset)
 
 
 DATALOADER_DICT = {}
-DATALOADER_DICT["clevr"] = {"train":dataloader_clevr_train, "val":dataloader_clevr_test, "test":dataloader_clevr_test}
-DATALOADER_DICT["spot"] = {"train":dataloader_spot_train, "val":dataloader_spot_test, "test":dataloader_spot_test}
+DATALOADER_DICT["tea"] = {"train":dataloader_tea_train, "val":dataloader_tea_test, "test":dataloader_tea_test}
+

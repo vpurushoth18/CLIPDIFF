@@ -14,7 +14,7 @@ from collections import defaultdict
 
 
 class Tea_DataLoader(Dataset):
-    """CLEVR dataset loader."""
+    """Tea dataset loader."""
     def __init__(
             self,
             subset,
@@ -61,7 +61,7 @@ class Tea_DataLoader(Dataset):
         self.sentences_dict = {}
         self.cut_off_points = []
         for image_id in image_ids:
-            image_id_name = "CLEVR_default_%s.png" % self.image_dict[image_id]
+            image_id_name = "Tea_default_%s.png" % self.image_dict[image_id]
             assert image_id_name in change_captions
             for cap_txt in change_captions[image_id_name]:
                 self.sentences_dict[len(self.sentences_dict)] = (image_id, cap_txt)
@@ -148,7 +148,7 @@ class Tea_DataLoader(Dataset):
 
     def __getitem__(self, idx):
         image_id, caption = self.sentences_dict[idx]
-        image_name = "CLEVR_default_%s.png" % self.image_dict[image_id]
+        image_name = "Tea_default_%s.png" % self.image_dict[image_id]
         bef_image_path = os.path.join(self.default_features_path, image_name)
         aft_image_path = os.path.join(self.sc_features_path, image_name.replace('default', 'semantic'))
 
