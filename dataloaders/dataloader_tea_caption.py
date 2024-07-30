@@ -191,7 +191,7 @@ class Tea_DataLoader(Dataset):
     def __getitem__(self, idx):
         image_id, caption = self.sentences_dict[idx]
         caption = random.choice(caption)
-        image_name = "CLEVR_default_%s.png" % self.image_dict[image_id]
+        image_name = "Tea_default_%s.png" % self.image_dict[image_id]
         image_idx_name = "%s.png" % self.image_dict[image_id]
 
         bef_image_path = os.path.join(self.default_features_path, image_name)
