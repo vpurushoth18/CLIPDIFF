@@ -75,6 +75,7 @@ class CLEVR_DataLoader(Dataset):
         #         self.nc_sentences_dict[image_id].append(cap_txt)
 
         ## below variables are used to multi-sentences retrieval
+
         # self.cut_off_points: used to tag the label when calculate the metric
         # self.sentence_num: used to cut the sentence representation
         # self.image_num: used to cut the image pair representation

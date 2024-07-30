@@ -21,9 +21,13 @@ from modules.beam import Beam
 from util import parallel_apply, get_logger
 from dataloaders.data_dataloaders import DATALOADER_DICT
 
+
+#pip install pycocoevalcap on your environment 
 from pycocotools.coco import COCO
-from pycocoevalcap.eval import COCOEvalCap
-from pycocoevalcap.eval import PTBTokenizer, Bleu, Meteor, Rouge, Cider
+#pip install pycocoevalcap on your environment 
+
+# from pycocoevalcap.eval import COCOEvalCap
+# from pycocoevalcap.eval import PTBTokenizer, Bleu, Meteor, Rouge, Cider
 
 torch.distributed.init_process_group(backend="nccl")
 

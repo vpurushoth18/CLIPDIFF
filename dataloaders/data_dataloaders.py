@@ -1,8 +1,8 @@
 import torch
 from torch.utils.data import DataLoader
-from dataloaders.dataloader_clevr_caption import CLEVR_DataLoader as CLEVR_Caption_DataLoader
+from dataloaders.dataloader_tea_caption import CLEVR_DataLoader as CLEVR_Caption_DataLoader
 from dataloaders.dataloader_spot_caption import SPOT_DataLoader as SPOT_Caption_DataLoader
-from dataloaders.dataloader_clevr_retrieval import CLEVR_DataLoader
+from dataloaders.dataloader_tea_retrieval import CLEVR_DataLoader
 from dataloaders.dataloader_spot_retrieval import SPOT_DataLoader
 
 
