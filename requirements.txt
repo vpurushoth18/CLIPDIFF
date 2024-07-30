@@ -1,0 +1,11 @@
+torch==1.7.1
+torchvision
+cudatoolkit==11.0
+ftfy
+regex
+tqdm
+opencv-python
+boto3
+requests
+pandas
+git+https://github.com/salaniz/pycocoevalcap.git

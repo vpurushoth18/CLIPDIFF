@@ -207,6 +207,7 @@ def init_model(args, device, n_gpu, local_rank):
 
     if args.init_model:
         model_state_dict = torch.load(args.init_model, map_location='cpu')
+        model_state_dict = torch.load(args.init_model)
     else:
         model_state_dict = None
 
@@ -253,6 +254,7 @@ def prep_optimizer(args, model, num_train_optimization_steps, device, n_gpu, loc
                          schedule='warmup_linear',
                          t_total=num_train_optimization_steps,
                          max_grad_norm=1.0)
+    
     # optimizer = BertAdam(optimizer_grouped_parameters, lr=args.lr, warmup=args.warmup_proportion,
     #                      schedule='warmup_cosine', b1=0.9, b2=0.98, e=1e-6,
     #                      t_total=num_train_optimization_steps, weight_decay=weight_decay,
