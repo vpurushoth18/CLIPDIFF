@@ -6,9 +6,9 @@ import logging
 
 import torch
 from torch import nn
-from torch.nn import CrossEntropyLoss
+from torch.nn import CrossEntropyLoss   
 
-from modules.until_module import PreTrainedModel, AllGather, CrossEn
+from modules.until_module import PreTrainedModel, AllGather, CrossEn, ContrastiveLoss
 from modules.module_cross import CrossModel, CrossConfig
 from modules.module_decoder import DecoderModel, DecoderConfig
 
@@ -194,8 +194,10 @@ class CLIP4IDC(CLIP4IDCPreTrainedModel):
                                          self.task_config, "decoder_num_hidden_layers")
             self.decoder = DecoderModel(decoder_config, bert_word_embeddings_weight, bert_position_embeddings_weight)
             self.decoder_loss_fct = CrossEntropyLoss(ignore_index=0)
+    
 
-        self.loss_fct = CrossEn()
+        # self.loss_fct = CrossEn()
+        self.loss_fct = ContrastiveLoss()
 
         self.apply(self.init_weights)
 

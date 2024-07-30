@@ -189,6 +189,24 @@ class CrossEn(nn.Module):
         nce_loss = -logpt
         sim_loss = nce_loss.mean()
         return sim_loss
+    
+class ContrastiveLoss(nn.Module):
+    def __init__(self, margin=1.0):
+        super(ContrastiveLoss, self).__init__()
+        self.margin = margin
+
+    def forward(self, sim_matrix, labels):
+        # sim_matrix: similarity matrix (batch_size, batch_size)
+        # labels: binary labels (batch_size, batch_size), 1 for similar, 0 for dissimilar
+        positive_pairs = labels * sim_matrix
+        negative_pairs = (1 - labels) * sim_matrix
+
+        positive_loss = positive_pairs.sum(dim=-1) / labels.sum(dim=-1)
+        negative_loss = F.relu(self.margin - negative_pairs).sum(dim=-1) / (1 - labels).sum(dim=-1)
+
+        loss = positive_loss + negative_loss
+        return loss.mean()
+
 
 class MILNCELoss(nn.Module):
     def __init__(self, batch_size=1, n_pair=1,):
