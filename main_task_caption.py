@@ -82,7 +82,7 @@ class EvalCap(COCOEvalCap):
                 print("%s: %0.3f" % (method, score))
         self.setEvalImgs()
 
-def get_args(description='CLIP4IDC on Captioning Task'):
+def get_args(description='Teabased on Captioning Task'):
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument("--do_pretrain", action='store_true', help="Whether to run training.")
     parser.add_argument("--do_train", action='store_true', help="Whether to run training.")
@@ -121,11 +121,11 @@ def get_args(description='CLIP4IDC on Captioning Task'):
     parser.add_argument("--cache_dir", default="", type=str,
                         help="Where do you want to store the pre-trained models downloaded from s3")
 
-    parser.add_argument('--fp16', action='store_true',
-                        help="Whether to use 16-bit (mixed) precision (through NVIDIA apex) instead of 32-bit")
-    parser.add_argument('--fp16_opt_level', type=str, default='O1',
-                        help="For fp16: Apex AMP optimization level selected in ['O0', 'O1', 'O2', and 'O3']."
-                             "See details at https://nvidia.github.io/apex/amp.html")
+    # parser.add_argument('--fp16', action='store_true',
+                        # help="Whether to use 16-bit (mixed) precision (through NVIDIA apex) instead of 32-bit")
+    #parser.add_argument('--fp16_opt_level', type=str, default='O1',
+    #                     # help="For fp16: Apex AMP optimization level selected in ['O0', 'O1', 'O2', and 'O3']."
+                            #  "See details at https://nvidia.github.io/apex/amp.html")
 
     parser.add_argument("--task_type", default="caption", type=str, help="Point the task `retrieval` or `caption` to finetune.")
     parser.add_argument("--datatype", default="msrvtt", type=str, help="Point the dataset to finetune.")
