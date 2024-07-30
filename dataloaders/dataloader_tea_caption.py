@@ -13,8 +13,8 @@ from dataloaders.rawimage_util import RawImageExtractor
 from collections import defaultdict
 
 
-class CLEVR_DataLoader(Dataset):
-    """CLEVR dataset loader."""
+class Tea_DataLoader(Dataset):
+    """Tea dataset loader."""
     def __init__(
             self,
             subset,
@@ -75,7 +75,7 @@ class CLEVR_DataLoader(Dataset):
         self.sentences_dict = {}
         self.cut_off_points = []
         for image_id in image_ids:
-            image_id_name = "CLEVR_default_%s.png" % self.image_dict[image_id]
+            image_id_name = "Tea_default_%s.png" % self.image_dict[image_id]
             assert image_id_name in change_captions
             self.sentences_dict[len(self.sentences_dict)] = (image_id, change_captions[image_id_name])
             # for cap_txt in change_captions[image_id_name]:

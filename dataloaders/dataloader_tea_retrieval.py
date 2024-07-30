@@ -13,7 +13,7 @@ from dataloaders.rawimage_util import RawImageExtractor
 from collections import defaultdict
 
 
-class CLEVR_DataLoader(Dataset):
+class Tea_DataLoader(Dataset):
     """CLEVR dataset loader."""
     def __init__(
             self,
