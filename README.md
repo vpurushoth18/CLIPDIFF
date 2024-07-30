@@ -64,7 +64,7 @@ python -m torch.distributed.launch --nproc_per_node=2 main_task_retrieval.py \
 --n_display=50 \
 --data_path ${DATA_PATH} \
 --features_path ${DATA_PATH} \
---output_dir ckpts/ckpt_clevr_retrieval \
+--output_dir ckpts/ckpt_tea_retrieval \
 --lr 1e-4 \
 --max_words 32 \
 --batch_size_val 128 \
@@ -94,7 +94,7 @@ Time required for each task is less than 24h.
 Reproducing the results on 2 **NVIDIA RTX A5000**.
 
 ```sh
-DATA_PATH=[Your CLEVR_Change data path]
+DATA_PATH=[tea dataset path]
 python -m torch.distributed.launch --nproc_per_node=1 main_task_caption.py \
 --do_train \
 --num_thread_reader=4 \  # Please don't change this value when reproducing the results
@@ -103,7 +103,7 @@ python -m torch.distributed.launch --nproc_per_node=1 main_task_caption.py \
 --n_display=50 \
 --data_path ${DATA_PATH} \
 --features_path ${DATA_PATH} \
---output_dir ckpts/ckpt_clevr_caption \
+--output_dir ckpts/ckpt_tea_caption \
 --lr 1e-4 \
 --max_words 32 \
 --batch_size_val 64 \
@@ -125,7 +125,7 @@ METEOR: 0.3840, ROUGE_L: 0.7643, CIDEr: 1.5075
 Reproducing the results on Two **NVIDIA V100.
 
 ```sh
-DATA_PATH=[Your CLEVR_Change data path]
+DATA_PATH=[tea dataset path]
 python -m torch.distributed.launch --nproc_per_node=2 main_task_caption.py \
 --do_train \
 --num_thread_reader=4 \
@@ -134,7 +134,7 @@ python -m torch.distributed.launch --nproc_per_node=2 main_task_caption.py \
 --n_display=50 \
 --data_path ${DATA_PATH} \
 --features_path ${DATA_PATH} \
---output_dir ckpts/ckpt_clevr_caption_multigpu \
+--output_dir ckpts/ckpt_tea_caption_multigpu \
 --lr 1e-4 \
 --max_words 32 \
 --batch_size_val 64 \
