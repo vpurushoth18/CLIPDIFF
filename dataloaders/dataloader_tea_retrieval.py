@@ -62,6 +62,7 @@ class Tea_DataLoader(Dataset):
         self.cut_off_points = []
         for image_id in image_ids:
             image_id_name = "Tea_default_%s.png" % self.image_dict[image_id]
+            image_id_name = 'Tea_fault_%S.png'self.image_dict[image_id]
             assert image_id_name in change_captions
             for cap_txt in change_captions[image_id_name]:
                 self.sentences_dict[len(self.sentences_dict)] = (image_id, cap_txt)
