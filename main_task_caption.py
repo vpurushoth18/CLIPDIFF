@@ -115,7 +115,7 @@ def get_args(description='Teabased on Captioning Task'):
     parser.add_argument('--gradient_accumulation_steps', type=int, default=1)
     parser.add_argument('--n_gpu', type=int, default=1)
 
-    parser.add_argument("--cache_dir", default="", type=str)
+    # parser.add_argument("--cache_dir", default="", type=str)
 
     # parser.add_argument('--fp16', action='store_true',
                         # help="Whether to use 16-bit (mixed) precision (through NVIDIA apex) instead of 32-bit")
