@@ -114,6 +114,7 @@ class Tea_DataLoader(Dataset):
             if len(words) > total_length_with_CLS:
                 words = words[:total_length_with_CLS]
             words = words + [self.SPECIAL_TOKEN["SEP_TOKEN"]]
+            input_ids = words + [self.SPECIAL_TOKEN['KNOWN_ids']]
 
             input_ids = self.tokenizer.convert_tokens_to_ids(words)
             input_mask = [1] * len(input_ids)
