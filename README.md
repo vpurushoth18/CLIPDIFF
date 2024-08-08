@@ -155,6 +155,8 @@ METEOR: 0.3900, ROUGE_L: 0.7640, CIDEr: 1.5039
 ```
 The latest results values for tea based retrieval system will be published soon
 
+Due to NDA signed for the company results wont be to published.
+
 
 
 
