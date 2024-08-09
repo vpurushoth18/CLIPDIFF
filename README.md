@@ -149,6 +149,7 @@ python -m torch.distributed.launch --nproc_per_node=2 main_task_caption.py \
 
 >The best results are obtained at Epoch 26
 ```
+
 BLEU_1: 0.8573, BLEU_2: 0.7761, BLEU_3: 0.6734, BLEU_4: 0.5663
 METEOR: 0.3900, ROUGE_L: 0.7640, CIDEr: 1.5039
 
@@ -157,6 +158,7 @@ The latest results values for tea based retrieval system will be published soon
 
 Due to NDA signed for the company results wont be to published.
 
+get the latest trained weights on our shared drive.
 
 
 
