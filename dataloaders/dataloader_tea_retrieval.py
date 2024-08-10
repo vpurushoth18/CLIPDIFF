@@ -126,7 +126,9 @@ class Tea_DataLoader(Dataset):
             assert len(input_ids) == self.max_words
             assert len(input_mask) == self.max_words
             assert len(segment_ids) == self.max_words
-
+            ############## inserted the error handiling mechanism###### 
+            assert len(segment_ids) == self.multi_sentence_per_pair
+ 
             pairs_text[i] = np.array(input_ids)
             pairs_mask[i] = np.array(input_mask)
             pairs_segment[i] = np.array(segment_ids)
