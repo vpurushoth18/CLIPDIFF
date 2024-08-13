@@ -33,7 +33,7 @@ def dataloader_tea_train(args, tokenizer):
     return dataloader, len(tea_dataset), train_sampler
 
 def dataloader_tea_test(args, tokenizer, subset="test"):
-    
+    # adding the dataloader test
     if args.task_type == "retrieval":
         DataSet_DataLoader = Tea_DataLoader
     else:
