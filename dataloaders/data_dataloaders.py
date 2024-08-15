@@ -34,6 +34,7 @@ def dataloader_tea_train(args, tokenizer):
 
 def dataloader_tea_test(args, tokenizer, subset="test"):
     # adding the dataloader test
+    #adding extra layer visual content
     if args.task_type == "retrieval":
         DataSet_DataLoader = Tea_DataLoader
     else:
