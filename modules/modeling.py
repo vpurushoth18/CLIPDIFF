@@ -87,8 +87,6 @@ class CLIP4IDCPreTrainedModel(PreTrainedModel, nn.Module):
 
                 state_dict["clip.visual.conv2.weight"] = cp_weight
 
-        ## <=== End of initialization trick
-
         if state_dict is not None:
             model = cls.init_preweight(model, state_dict, task_config=task_config)
 
