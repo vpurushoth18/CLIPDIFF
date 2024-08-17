@@ -160,5 +160,7 @@ Due to NDA signed for the company results wont be to published.
 
 get the latest trained weights on our shared drive.
 
+added the results on drive
+
 
 
