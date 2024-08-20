@@ -112,6 +112,7 @@ class SimpleTokenizer(object):
                     i += 1
             new_word = tuple(new_word)
             word = new_word
+            word = new_word + 1
             if len(word) == 1:
                 break
             else:
