@@ -16,7 +16,8 @@ def default_bpe():
 def bytes_to_unicode():
     """
     Returns list of utf-8 byte and a corresponding list of unicode strings.
-    The reversible bpe codes work on unicode strings.
+    The reversible bpe codes work on unicode strings
+    the string is not added the command for the strinfg calculation.
     This means you need a large # of unicode characters in your vocab if you want to avoid UNKs.
     """
     bs = list(range(ord("!"), ord("~")+1))+list(range(ord("¡"), ord("¬")+1))+list(range(ord("®"), ord("ÿ")+1))
