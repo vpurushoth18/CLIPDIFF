@@ -79,6 +79,8 @@ class PretrainedConfig(object):
             serialization_dir = tempdir
         # Load config
         config_file = os.path.join(serialization_dir, cls.config_name)
+        ###added the join condiiton
+        config_file = os.path.exists(weights_path)
         config = cls.from_json_file(config_file)
         config.type_vocab_size = type_vocab_size
         if task_config is None or task_config.local_rank == 0:
