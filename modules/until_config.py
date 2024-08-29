@@ -115,6 +115,7 @@ class PretrainedConfig(object):
             text = reader.read()
         return cls.from_dict(json.loads(text))
 
+
     def __repr__(self):
         return str(self.to_json_string())
 
