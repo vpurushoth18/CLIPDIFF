@@ -548,6 +548,7 @@ def convert_weights(model: nn.Module):
                 l.bias.data = l.bias.data.half()
 
         if isinstance(l, nn.MultiheadAttention):
+            
             for attr in [*[f"{s}_proj_weight" for s in ["in", "q", "k", "v"]], "in_proj_bias", "bias_k", "bias_v"]:
                 tensor = getattr(l, attr)
                 if tensor is not None:
