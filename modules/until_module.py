@@ -285,3 +285,7 @@ class AllGather(torch.autograd.Function):
             grad_output[ctx.batch_size * ctx.rank : ctx.batch_size * (ctx.rank + 1)],
             None,
         )
+    
+    def calculate_loss(ctx,grad_output, predicted_output):
+        ctx.rank = grad_output - predicted_output
+        return ctx.rank
