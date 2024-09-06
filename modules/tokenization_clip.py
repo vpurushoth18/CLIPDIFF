@@ -24,6 +24,7 @@ def bytes_to_unicode():
     cs = bs[:]
     n = 0
     for b in range(2**8):
+        #make bytes to unicode
         if b not in bs:
             bs.append(b)
             cs.append(2**8+n)
