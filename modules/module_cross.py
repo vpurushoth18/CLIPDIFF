@@ -359,6 +359,7 @@ class CrossModel(PreTrainedModel):
         self.embeddings = CrossEmbeddings(config)
         self.encoder = CrossEncoder(config)
         self.pooler = CrossPooler(config)
+        self.encoder = CrossEncoder(config)
         self.apply(self.init_weights)
 
     def forward(self, concat_input, concat_type=None, attention_mask=None, output_all_encoded_layers=True):
