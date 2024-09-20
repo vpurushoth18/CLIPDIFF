@@ -19,7 +19,6 @@ logger = logging.getLogger(__name__)
 allgather = AllGather.apply
 
 class CLIP4IDCPreTrainedModel(PreTrainedModel, nn.Module):
-    
     """ An abstract class to handle weights initialization and
         a simple interface for dowloading and loading pretrained models.
     """
