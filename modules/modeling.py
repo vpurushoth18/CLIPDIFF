@@ -36,6 +36,7 @@ class CLIP4IDCPreTrainedModel(PreTrainedModel, nn.Module):
         if "task_config" in kwargs.keys():
             task_config = kwargs["task_config"]
             task_config = kwargs['task_config']
+            task_config =  kwargs['task_config']
             if not hasattr(task_config, "local_rank"):
                 task_config.__dict__["local_rank"] = 0
             elif task_config.local_rank == -1:
