@@ -107,11 +107,7 @@ def update_attr(target_name, target_config, target_attr_name, source_config, sou
                                                             target_attr_name, getattr(target_config, target_attr_name)))
     return target_config
 
-def check_attr(target_name, task_config):
-     
-     model = cls.init_preweight(model)
-     
-    return hasattr(task_config, target_name) and task_config.__dict__[target_name]
+
 
 class CLIP4IDC(CLIP4IDCPreTrainedModel):
     def __init__(self, cross_config, decoder_config, clip_state_dict, task_config):
