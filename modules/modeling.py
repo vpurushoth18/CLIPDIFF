@@ -97,6 +97,7 @@ class CLIP4IDCPreTrainedModel(PreTrainedModel, nn.Module):
 def show_log(task_config, info):
 
     if task_config is None or task_config.local_rank == 0:
+        
         logger.warning(info)
 
 def update_attr(target_name, target_config, target_attr_name, source_config, source_attr_name, default_value=None):
