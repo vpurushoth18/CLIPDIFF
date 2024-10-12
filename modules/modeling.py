@@ -102,6 +102,7 @@ def show_log(task_config, info):
 
 def update_attr(target_name, target_config, target_attr_name, source_config, source_attr_name, default_value=None):
     if hasattr(source_config, source_attr_name):
+        
         if default_value is None or getattr(source_config, source_attr_name) != default_value:
             setattr(target_config, target_attr_name, getattr(source_config, source_attr_name))
             show_log(source_config, "Set {}.{}: {}.".format(target_name,
